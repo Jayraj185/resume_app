@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:resume_app/MC.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:resume_app/pdf1.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController txtHoby = TextEditingController();
   TextEditingController txtOtherSkill = TextEditingController();
   TextEditingController txtSummary = TextEditingController();
+  TextEditingController txtExpe = TextEditingController();
   String contry = "India";
   String state = "Gujarat";
   String city = "Surat";
@@ -58,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String hoby = "";
   String otherskill = "";
   String summary = "";
+  String expe = "";
   List AllCountry = [
     "India",
     "Armenia",
@@ -146,6 +149,15 @@ class _HomeScreenState extends State<HomeScreen> {
     "Valsad",
   ];
   String? path;
+
+  FontWeight bold()
+  {
+    return FontWeight.bold;
+  }
+  Icons icon(Icons)
+  {
+    return Icons.Icons;
+  }
 
   Widget bottomsheet() {
     return Container(
@@ -1309,6 +1321,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                          padding: EdgeInsets.only(left: 15, top: 15),
+                          child: Text("Experience",
+                            style: TextStyle(fontSize: 20, color: Color(
+                                0xFF555259)),)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 12, right: 12, top: 5),
+                      child: TextField(
+                        controller: txtExpe,
+                        //textInputAction: TextInputAction.next,
+                        cursorColor: Color(0xFF555259),
+                        maxLines: 2,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(top: 20),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF555259)),
+                              borderRadius: BorderRadius.circular(15)
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF555259)),
+                              borderRadius: BorderRadius.circular(9)
+                          ),
+                          hintText: "Enter Experience Ex. Increased user experience by 20% ......",
+                          prefixIcon: Icon(
+                            Icons.accessibility_sharp, color: Color(
+                              0xFFBF9D95),),
+                        ),
+                      ),
+                    ),
                     SizedBox(height: 21,),
                     InkWell(
                       onTap: () {
@@ -1358,6 +1402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           hoby = txtHoby.text;
                           otherskill = txtOtherSkill.text;
                           summary = txtSummary.text;
+                          expe = txtExpe.text;
                           // ResumeData.add(fn);
                           // ResumeData.add(ln);
                           // ResumeData.add(edu);
@@ -1403,14 +1448,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             skill2: skills2,
                             skill3: skills3,
                             otherskill: otherskill,
-                            summary: summary);
-                        if (valid.currentState!.validate()) {
-                          Navigator.pushNamed(context, 'Data', arguments: m1,);
-                        }
-                        else {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text("Please Complete Fill Form")));
-                        }
+                            summary: summary,
+                            expe: expe,
+                        );
+
+                        TypeOfResume(m1);
+                        //PDF1(m1);
+
+                        // if (valid.currentState!.validate()) {
+                        //   TypeOfResume(m1);
+                        //   //PDF1(m1);
+                        // }
+                        // else {
+                        //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        //       content: Text("Please Complete Fill Form")));
+                        // }
                       },
                       child: Container(
                         height: 60,
@@ -1468,5 +1520,126 @@ class _HomeScreenState extends State<HomeScreen> {
   {
     alert();
     return await false;
+  }
+  void TypeOfResume(MC m1)
+  {
+    showDialog(context: context, builder: (context)
+     {
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        content: Container(
+          height: 360,
+          width: 400,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 6,top: 15),
+                child: Text(
+                  "Types Of Resume",
+                  style: TextStyle(fontSize: 30,color: Colors.black),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5,top: 25),
+                child: InkWell(
+                  onTap: (){
+                    resume(m1);
+                  },
+                  child: Text(
+                    "Resume 1",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5,top: 35),
+                child: InkWell(
+                  onTap: (){},
+                  child: Text(
+                    "Resume 2",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5,top: 35),
+                child: InkWell(
+                  onTap: (){},
+                  child: Text(
+                    "Resume 3",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5,top: 35),
+                child: InkWell(
+                  onTap: (){},
+                  child: Text(
+                    "Resume 4",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5,top: 35),
+                child: InkWell(
+                  onTap: (){},
+                  child: Text(
+                    "Resume 5",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+       );
+     }
+    );
+
+  }
+  void resume(MC m1)
+  {
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
+        content: Container(
+          height: 30,
+          width: 30,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: InkWell(
+                  onTap: (){
+                    PDF1(m1);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Downloads",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              SizedBox(width: 30,),
+              Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: InkWell(
+                  onTap: (){
+                    //Navigator.pushNamed(context, 'Data');
+                  },
+                  child: Text(
+                    "Review",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }

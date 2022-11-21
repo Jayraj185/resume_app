@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:resume_app/MC.dart';
 
@@ -66,7 +65,67 @@ class _DataScreenState extends State<DataScreen> {
                                 fontSize: 12
                             ),
                           ),
-                        )
+                        ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(left: 80,top: 300),
+                        //   child: Container(
+                        //       height: 35,
+                        //       width: 150,
+                        //       alignment: Alignment.center,
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.brown,
+                        //           borderRadius: BorderRadius.circular(18)
+                        //       ),
+                        //       child: Text(
+                        //         "EXPERIENCE",
+                        //         style: TextStyle(
+                        //             fontSize: 20,
+                        //             color: Colors.white,
+                        //             fontWeight: FontWeight.bold
+                        //         ),
+                        //       )
+                        //   ),
+                        // ),
+                        // Padding(
+                        //     padding: EdgeInsets.only(left: 38,top: 360),
+                        //     child: Text(
+                        //         " ${data.expe}",
+                        //         style: TextStyle(
+                        //             fontSize: 15,
+                        //             color: Colors.brown
+                        //         )
+                        //     )
+                        // ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(left: 80,top: 660),
+                        //   child: Container(
+                        //       height: 35,
+                        //       width: 150,
+                        //       alignment: Alignment.center,
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.brown,
+                        //           borderRadius: BorderRadius.circular(18)
+                        //       ),
+                        //       child: Text(
+                        //         "ABOUT ME",
+                        //         style: TextStyle(
+                        //             fontSize: 20,
+                        //             color: Colors.white,
+                        //             fontWeight: FontWeight.bold
+                        //         ),
+                        //       )
+                        //   ),
+                        // ),
+                        // Padding(
+                        //     padding: EdgeInsets.only(left: 38,top: 710),
+                        //     child: Text(
+                        //         "My Name Is ${data.fn} ${data.ln},I'm Old \nOf ${data.age} Year, My BirthDay ${data.birth},\nI'm A ${data.status} Person. My Height Is ${data.height}cm\nAnd Weight Is ${data.weight}kg. My Hobbies Is\n${data.hobby}",
+                        //         style: TextStyle(
+                        //             fontSize: 15,
+                        //             color: Colors.brown
+                        //         )
+                        //     )
+                        // )
                       ],
                     ),
                   ),

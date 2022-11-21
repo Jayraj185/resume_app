@@ -1,6 +1,6 @@
 class MC
 {
-  String? fn,ln,edu,birth,age,gender,status,occ,pn,email,add,zc,country,state,city,height,weight,hobby,skill1,skill2,skill3,otherskill,summary,image;
+  String? fn,ln,edu,birth,age,gender,status,occ,pn,email,add,zc,country,state,city,height,weight,hobby,skill1,skill2,skill3,otherskill,summary,expe,image;
   MC(
         {
           required this.fn,
@@ -26,6 +26,7 @@ class MC
           this.skill3,
           this.otherskill,
           this.summary,
+          this.expe,
           this.image,
         }
      );
