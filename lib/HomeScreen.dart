@@ -480,8 +480,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(left: 12, right: 12, top: 5),
                       child: TextFormField(
                         controller: txtEdu,
-                        textInputAction: TextInputAction.next,
                         cursorColor: Color(0xFF555259),
+                        maxLines: 2,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(top: 20),
                           border: OutlineInputBorder(
@@ -1313,30 +1313,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(
                       onTap: () {
                         //List ResumeData = [];
-                        String skills = "";
+                        // String skills = "";
+                        String skills1 = "";
+                        String skills2 = "";
+                        String skills3 = "";
+
                         if (skill == true) {
-                          skills = skills + "Swimming";
+                          skills1 = skills1 + "Swimming";
                         }
                         if (skill2 == true) {
-                          skills = skills + " Sports";
+                          skills1 = skills1 + " Sports";
                         }
                         if (skill3 == true) {
-                          skills = skills + " Solving Puzzel";
+                          skills2 = skills2 + " Solving Puzzel";
                         }
                         if (skill4 == true) {
-                          skills = skills + " Travelling";
+                          skills2 = skills2 + " Travelling";
                         }
                         if (skill5 == true) {
-                          skills = skills + " Sketching";
+                          skills3 = skills3 + " Sketching";
                         }
                         if (skill6 == true) {
-                          skills = skills + " Drawing";
+                          skills3 = skills3 + " Drawing";
                         }
                         if (skill7 == true) {
-                          skills = skills + " Painting";
+                          skills3 = skills3 + " Painting";
                         }
                         if (skill8 == true) {
-                          skills = skills + " Coding";
+                          skills1 = skills1 + " Coding";
                         }
                         setState(() {
                           fn = txtFN.text;
@@ -1395,7 +1399,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: h,
                             weight: w,
                             hobby: hoby,
-                            skills: skills,
+                            skill1: skills1,
+                            skill2: skills2,
+                            skill3: skills3,
                             otherskill: otherskill,
                             summary: summary);
                         if (valid.currentState!.validate()) {
