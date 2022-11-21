@@ -66,239 +66,242 @@ class _DataScreenState extends State<DataScreen> {
                             ),
                           ),
                         ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(left: 80,top: 300),
-                        //   child: Container(
-                        //       height: 35,
-                        //       width: 150,
-                        //       alignment: Alignment.center,
-                        //       decoration: BoxDecoration(
-                        //           color: Colors.brown,
-                        //           borderRadius: BorderRadius.circular(18)
-                        //       ),
-                        //       child: Text(
-                        //         "EXPERIENCE",
-                        //         style: TextStyle(
-                        //             fontSize: 20,
-                        //             color: Colors.white,
-                        //             fontWeight: FontWeight.bold
-                        //         ),
-                        //       )
-                        //   ),
-                        // ),
-                        // Padding(
-                        //     padding: EdgeInsets.only(left: 38,top: 360),
-                        //     child: Text(
-                        //         " ${data.expe}",
-                        //         style: TextStyle(
-                        //             fontSize: 15,
-                        //             color: Colors.brown
-                        //         )
-                        //     )
-                        // ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(left: 80,top: 660),
-                        //   child: Container(
-                        //       height: 35,
-                        //       width: 150,
-                        //       alignment: Alignment.center,
-                        //       decoration: BoxDecoration(
-                        //           color: Colors.brown,
-                        //           borderRadius: BorderRadius.circular(18)
-                        //       ),
-                        //       child: Text(
-                        //         "ABOUT ME",
-                        //         style: TextStyle(
-                        //             fontSize: 20,
-                        //             color: Colors.white,
-                        //             fontWeight: FontWeight.bold
-                        //         ),
-                        //       )
-                        //   ),
-                        // ),
-                        // Padding(
-                        //     padding: EdgeInsets.only(left: 38,top: 710),
-                        //     child: Text(
-                        //         "My Name Is ${data.fn} ${data.ln},I'm Old \nOf ${data.age} Year, My BirthDay ${data.birth},\nI'm A ${data.status} Person. My Height Is ${data.height}cm\nAnd Weight Is ${data.weight}kg. My Hobbies Is\n${data.hobby}",
-                        //         style: TextStyle(
-                        //             fontSize: 15,
-                        //             color: Colors.brown
-                        //         )
-                        //     )
-                        // )
+                        Padding(
+                          padding: EdgeInsets.only(left: 20,top: 260),
+                          child: Container(
+                              height: 35,
+                              width: 150,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.brown,
+                                  borderRadius: BorderRadius.circular(18)
+                              ),
+                              child: Text(
+                                "EXPERIENCE",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                ),
+                              )
+                          ),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: 15,top: 315),
+                            child: Text(
+                                " ${data.expe}",
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.brown
+                                )
+                            )
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20,top: 610),
+                          child: Container(
+                              height: 35,
+                              width: 150,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.brown,
+                                  borderRadius: BorderRadius.circular(18)
+                              ),
+                              child: Text(
+                                "ABOUT ME",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                ),
+                              )
+                          ),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: 15,top: 660),
+                            child: Text(
+                                "My Name Is ${data.fn} ${data.ln},I'm Old \nOf ${data.age} Year, My BirthDay ${data.birth},\nI'm A ${data.status} Person. My Height Is ${data.height}cm\nAnd Weight Is ${data.weight}kg. My Hobbies Is\n${data.hobby}",
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.brown
+                                )
+                            )
+                        )
                       ],
                     ),
                   ),
-                  Stack(
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height*1,
-                        width: 157,
-                        decoration: BoxDecoration(
-                          color: Colors.brown,
-                          borderRadius: BorderRadius.circular(70)
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 18,top: 15),
-                        child: Container(
-                          height: 125,
-                          width: 125,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 121),
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height*0.80,
+                          width: 157,
                           decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                            border: Border.all(color: Colors.black,width: 2)
-                          ),
-                          child: (data.image==null) ?
-                          CircleAvatar(
-                            radius: 66,
-                            backgroundColor: Colors.white,
-                            backgroundImage:AssetImage("assets/image/profile.png") ,
-                          ): CircleAvatar(
-                            radius: 66,
-                            backgroundImage: FileImage(File("${data.image}")),
-                            backgroundColor: Colors.white,
+                            color: Colors.brown,
+                            borderRadius: BorderRadius.circular(70)
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 23,top: 151),
-                        child: Container(
-                          height: 30,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30)
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "CONTACT",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.brown,
-                              fontWeight: FontWeight.bold
+                        Padding(
+                          padding: EdgeInsets.only(left: 18,top: 15),
+                          child: Container(
+                            height: 125,
+                            width: 125,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              border: Border.all(color: Colors.black,width: 2)
+                            ),
+                            child: (data.image==null) ?
+                            CircleAvatar(
+                              radius: 66,
+                              backgroundColor: Colors.white,
+                              backgroundImage:AssetImage("assets/image/profile.png") ,
+                            ): CircleAvatar(
+                              radius: 66,
+                              backgroundImage: FileImage(File("${data.image}")),
+                              backgroundColor: Colors.white,
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,top: 205),
-                        child: Row(
-                          children: [
-                            Icon(Icons.place,color: Colors.white,size: 18,),
-                            SizedBox(width: 3,),
-                            Text(
-                              "${data.add}, ${data.city},\n${data.state}, ${data.country}, - ${data.zc}.",
-                              style: TextStyle(
-                                fontSize: 9,
-                                color: Colors.white
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),Padding(
-                        padding: EdgeInsets.only(left: 5,top: 235),
-                        child: Row(
-                          children: [
-                            Icon(Icons.call,color: Colors.white,size: 18,),
-                            SizedBox(width: 6,),
-                            Text(
-                              "${data.pn}",
-                              style: TextStyle(
-                                fontSize: 9,
-                                color: Colors.white
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,top: 260),
-                        child: Row(
-                          children: [
-                            Icon(Icons.email,color: Colors.white,size: 18,),
-                            SizedBox(width: 3,),
-                            Text(
-                              "${data.email}",
-                              style: TextStyle(
-                                fontSize: 9,
-                                color: Colors.white
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20,top:300),
-                        child: Container(
-                          height: 30,
-                          width: 120,
-                          decoration: BoxDecoration(
+                        Padding(
+                          padding: EdgeInsets.only(left: 23,top: 151),
+                          child: Container(
+                            height: 30,
+                            width: 120,
+                            decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(30)
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "EDUCATION",
-                            style: TextStyle(
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "CONTACT",
+                              style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.brown,
                                 fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,top: 345),
-                        child: Row(
-                          children: [
-                            SizedBox(width: 16,),
-                            Text(
-                              "${data.edu}",
-                              style: TextStyle(
-                                  fontSize: 9,
-                                  color: Colors.white
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20,top:480),
-                        child: Container(
-                          height: 30,
-                          width: 120,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "SKILL",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.brown,
-                                fontWeight: FontWeight.bold
-                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5,top: 525),
-                        child: Row(
-                          children: [
-                            SizedBox(width: 16,),
-                            Text(
-                              "${data.otherskill}\n ${data.skill1}\n\n${data.skill2}\n\n${data.skill3}",
-                              style: TextStyle(
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 205),
+                          child: Row(
+                            children: [
+                              Icon(Icons.place,color: Colors.white,size: 18,),
+                              SizedBox(width: 3,),
+                              Text(
+                                "${data.add}, ${data.city},\n${data.state}, ${data.country}, - ${data.zc}.",
+                                style: TextStyle(
                                   fontSize: 9,
                                   color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),Padding(
+                          padding: EdgeInsets.only(left: 5,top: 235),
+                          child: Row(
+                            children: [
+                              Icon(Icons.call,color: Colors.white,size: 18,),
+                              SizedBox(width: 6,),
+                              Text(
+                                "${data.pn}",
+                                style: TextStyle(
+                                  fontSize: 9,
+                                  color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 260),
+                          child: Row(
+                            children: [
+                              Icon(Icons.email,color: Colors.white,size: 18,),
+                              SizedBox(width: 3,),
+                              Text(
+                                "${data.email}",
+                                style: TextStyle(
+                                  fontSize: 9,
+                                  color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20,top:300),
+                          child: Container(
+                            height: 30,
+                            width: 120,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30)
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "EDUCATION",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.brown,
+                                  fontWeight: FontWeight.bold
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 345),
+                          child: Row(
+                            children: [
+                              SizedBox(width: 16,),
+                              Text(
+                                "${data.edu}",
+                                style: TextStyle(
+                                    fontSize: 9,
+                                    color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20,top:480),
+                          child: Container(
+                            height: 30,
+                            width: 120,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30)
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "SKILL",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.brown,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5,top: 525),
+                          child: Row(
+                            children: [
+                              SizedBox(width: 16,),
+                              Text(
+                                "${data.otherskill}\n\n${data.skill1}\n\n${data.skill2}\n\n${data.skill3}",
+                                style: TextStyle(
+                                    fontSize: 9,
+                                    color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               )

@@ -7,6 +7,8 @@ import 'package:resume_app/MC.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:resume_app/pdf1.dart';
+import 'package:resume_app/pdf2.dart';
+import 'package:resume_app/pdf3.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -323,6 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             txtHoby.clear();
                             txtOtherSkill.clear();
                             txtSummary.clear();
+                            txtExpe.clear();
                             skill = false;
                             skill2 = false;
                             skill3 = false;
@@ -352,6 +355,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
+                      ),
+                      PopupMenuItem(child: InkWell(onTap: (){
+                        Navigator.pushNamed(context, 'R1');
+                      },child: Row(
+                        children: [
+                          Icon(Icons.looks_one,color: Color(0xFF555259),),
+                          SizedBox(width: 15,),
+                          Text("Resume Type 1"),
+                        ],
+                      )),
+                      ),
+                      PopupMenuItem(child: InkWell(onTap: (){Navigator.pushNamed(context, 'R2');},child: Row(
+                        children: [
+                          Icon(Icons.looks_two_rounded,color: Color(0xFF555259),),
+                          SizedBox(width: 15,),
+                          Text("Resume Type 2"),
+                        ],
+                      )),
+                      ),
+                      PopupMenuItem(child: InkWell(onTap: (){Navigator.pushNamed(context, 'R3');},child: Row(
+                        children: [
+                          Icon(Icons.looks_3,color: Color(0xFF555259),),
+                          SizedBox(width: 15,),
+                          Text("Resume Type 3"),
+                        ],
+                      )),
                       ),
                     ];
                   }),
@@ -428,7 +457,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderSide: BorderSide(color: Color(0xFF555259)),
                               borderRadius: BorderRadius.circular(9)
                           ),
-                          hintText: "Enter First Name Ex. Jay",
+                          hintText: "Enter First Name(Capital) Ex. JAY",
                           prefixIcon: Icon(Icons.person, color: Color(
                               0xFFBF9D95),),
                         ),
@@ -466,7 +495,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderSide: BorderSide(color: Color(0xFF555259)),
                               borderRadius: BorderRadius.circular(9)
                           ),
-                          hintText: "Enter Last Name Ex. Kalsariya",
+                          hintText: "Enter Last Name(Capital) Ex. KALSARIYA",
                           prefixIcon: Icon(Icons.person, color: Color(
                               0xFFBF9D95),),
                         ),
@@ -1299,7 +1328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 12, right: 12, top: 5),
-                      child: TextField(
+                      child: TextFormField(
                         controller: txtSummary,
                         //textInputAction: TextInputAction.next,
                         cursorColor: Color(0xFF555259),
@@ -1319,6 +1348,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             Icons.accessibility_sharp, color: Color(
                               0xFFBF9D95),),
                         ),
+                        validator: (value){
+                          if(value!.isEmpty)
+                            {
+                              return "Please Enter Your Summary";
+                            }
+                          else
+                            {
+                              return null;
+                            }
+                        },
                       ),
                     ),
                     Align(
@@ -1331,7 +1370,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 12, right: 12, top: 5),
-                      child: TextField(
+                      child: TextFormField(
                         controller: txtExpe,
                         //textInputAction: TextInputAction.next,
                         cursorColor: Color(0xFF555259),
@@ -1351,6 +1390,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             Icons.accessibility_sharp, color: Color(
                               0xFFBF9D95),),
                         ),
+                        validator: (value){
+                          if(value!.isEmpty)
+                            {
+                              return "Please Enter Your Experience";
+                            }
+                          else
+                            {
+                              return null;
+                            }
+                        },
                       ),
                     ),
                     SizedBox(height: 21,),
@@ -1451,18 +1500,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             summary: summary,
                             expe: expe,
                         );
-
-                        TypeOfResume(m1);
-                        //PDF1(m1);
-
-                        // if (valid.currentState!.validate()) {
-                        //   TypeOfResume(m1);
-                        //   //PDF1(m1);
-                        // }
-                        // else {
-                        //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        //       content: Text("Please Complete Fill Form")));
-                        // }
+                        if (valid.currentState!.validate()) {
+                          TypeOfResume(m1);
+                        }
+                        else {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Please Complete Fill Form")));
+                        }
                       },
                       child: Container(
                         height: 60,
@@ -1528,7 +1572,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return AlertDialog(
         backgroundColor: Colors.white,
         content: Container(
-          height: 360,
+          height: 250,
           width: 400,
           child: Column(
             children: [
@@ -1540,7 +1584,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 5,top: 25),
+                padding: EdgeInsets.only(left: 5,top: 35),
                 child: InkWell(
                   onTap: (){
                     resume(m1);
@@ -1554,7 +1598,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.only(left: 5,top: 35),
                 child: InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    resume2(m1);
+                  },
                   child: Text(
                     "Resume 2",
                     style: TextStyle(fontSize: 20,color: Colors.black),
@@ -1564,29 +1610,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: EdgeInsets.only(left: 5,top: 35),
                 child: InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    resume3(m1);
+                  },
                   child: Text(
                     "Resume 3",
-                    style: TextStyle(fontSize: 20,color: Colors.black),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5,top: 35),
-                child: InkWell(
-                  onTap: (){},
-                  child: Text(
-                    "Resume 4",
-                    style: TextStyle(fontSize: 20,color: Colors.black),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5,top: 35),
-                child: InkWell(
-                  onTap: (){},
-                  child: Text(
-                    "Resume 5",
                     style: TextStyle(fontSize: 20,color: Colors.black),
                   ),
                 ),
@@ -1628,7 +1656,93 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(left: 5),
                 child: InkWell(
                   onTap: (){
-                    //Navigator.pushNamed(context, 'Data');
+                    Navigator.pushNamed(context, 'Data',arguments: m1);
+                  },
+                  child: Text(
+                    "Review",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+  void resume2(MC m1)
+  {
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
+        content: Container(
+          height: 30,
+          width: 30,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: InkWell(
+                  onTap: (){
+                    PDF2(m1);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Downloads",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              SizedBox(width: 30,),
+              Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, 'Data2',arguments: m1);
+                  },
+                  child: Text(
+                    "Review",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+  void resume3(MC m1)
+  {
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
+        content: Container(
+          height: 30,
+          width: 30,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: InkWell(
+                  onTap: (){
+                    PDF3(m1);
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Downloads",
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  ),
+                ),
+              ),
+              SizedBox(width: 30,),
+              Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, 'Data3',arguments: m1);
                   },
                   child: Text(
                     "Review",
@@ -1643,3 +1757,4 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 }
+
