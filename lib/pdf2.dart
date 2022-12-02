@@ -6,12 +6,12 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as p1;
 import 'package:resume_app/MC.dart';
 
-void PDF2(MC? data) async
+void PDF2(MC data) async
 {
   var pdf2 = p1.Document();
-  final image = p1.MemoryImage(
-    File("${data!.image}").readAsBytesSync(),
-  );
+  // final image = p1.MemoryImage(
+  //   File("${data!.image}").readAsBytesSync(),
+  // );
   pdf2.addPage(
     p1.Page(
       pageFormat: PdfPageFormat.a4,
@@ -43,14 +43,14 @@ void PDF2(MC? data) async
                       shape: p1.BoxShape.circle,
                       border: p1.Border.all(color: PdfColors.black,width: 2)
                   ),
-                alignment: p1.Alignment.center,
-                child: p1.Image(image),
+                // alignment: p1.Alignment.center,
+                // child: p1.Image(image),
               )
             ),
             p1.Padding(
               padding: p1.EdgeInsets.only(left: 260,top: 100),
               child: p1.Text(
-                "${data!.fn}\n${data!.ln}",
+                "${data.fn}\n${data.ln}",
                 style: p1.TextStyle(
                     color: PdfColors.black,
                     fontSize: 20,

@@ -851,6 +851,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: TextFormField(
                         controller: txtEmail,
                         textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.emailAddress,
                         cursorColor: Color(0xFF555259),
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(top: 20),
@@ -894,6 +895,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: TextFormField(
                         controller: txtAdd,
                         textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.streetAddress,
                         cursorColor: Color(0xFF555259),
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(top: 20),

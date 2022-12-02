@@ -7,11 +7,17 @@ import 'package:pdf/widgets.dart' as p1;
 import 'MC.dart';
 import 'dart:ui';
 
-void PDF1(MC? data) async
+void PDF1(MC data) async
 {
   var pdf1 = p1.Document();
-  String img = "${data!.image}";
-  //final imge = p1.MemoryImage(data.image);
+  // String img = "${data!.image}";
+  // String cal = "assets/image/call.jpeg";
+  // String mal = "assets/image/mail.jpg";
+  // String plac = "assets/image/place.jpg";
+  // //final imge = p1.MemoryImage(data.image);
+  // final call = p1.MemoryImage(File(cal).readAsBytesSync());
+  // final mail = p1.MemoryImage(File(mal).readAsBytesSync());
+  // final place = p1.MemoryImage(File(plac).readAsBytesSync());
   pdf1.addPage(
     p1.Page(
       margin: p1.EdgeInsets.all(10),
@@ -30,6 +36,8 @@ void PDF1(MC? data) async
                           height: 820,
                           width: 340,
                           color: PdfColors.white,
+                          // alignment: p1.Alignment.center,
+                          // child: p1.Image(call),
                         ),
                         p1.Padding(
                           padding: p1.EdgeInsets.only(left: 18,top: 36),
@@ -176,7 +184,7 @@ void PDF1(MC? data) async
                               //p1.Icon(p1.IconData(mt.Icons.place.codePoint,),color: PdfColors.white,size: 15),
                               p1.SizedBox(width: 3,),
                               p1.Text(
-                                "${data!.add}, ${data!.city},\n${data!.state}, ${data!.country}, - ${data.zc}.",
+                                "${data.add}, ${data.city},\n${data.state}, ${data.country}, - ${data.zc}.",
                                 style: p1.TextStyle(
                                     fontSize: 9,
                                     color: PdfColors.white,
